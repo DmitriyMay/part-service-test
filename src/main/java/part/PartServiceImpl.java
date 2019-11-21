@@ -17,7 +17,7 @@ import java.util.List;
 public class PartServiceImpl implements Service {
 
     @Inject
-    DAO dao;
+    private DAO dao;
 
     @Override
     public List < Part > getAllParts() {
