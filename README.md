@@ -6,6 +6,7 @@ JRE 1.8, Maven 3, tomcat over 8.
 - WAR archive should be placed in the "webapp" directory where tomcat is located
 - Run tomcat "startup.bat/sh"
 - Follow the link "http://localhost: 8080/".
+
 Or
 - Open a project in Ide (IntelliJ IDEA)
 - Add configuration, select "Tomcat Server -> Local"
