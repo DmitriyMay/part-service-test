@@ -94,10 +94,10 @@ public class PartDaoImpl implements DAO {
 
         try {
             statement = connection.prepareStatement(compiledQuery);
-            statement.setString(1, criteria.getPartNumber());
-            statement.setString(2, criteria.getPartName());
-            statement.setString(3, criteria.getVendor());
-            statement.setDate(4, new Date(criteria.getShippedAfter().getTime()));
+            statement.setString(1, criteria.getPartNumber().toLowerCase());
+            statement.setString(2, criteria.getPartName().toLowerCase());
+            statement.setString(3, criteria.getVendor().toLowerCase());
+            statement.setDate(4, criteria.getShippedAfter());
             statement.setDate(5, criteria.getShippedBefore());
             statement.setDate(6, criteria.getReceiveAfter());
             statement.setDate(7, criteria.getReceiveBefore());
