@@ -25,9 +25,9 @@ public class JDBCConnectionProducer {
 
     @Produces
     private Connection createConnection() {
-        Connection connection;
         initProperty();
-
+        
+        Connection connection;
         try {
             Class.forName(driver);
             connection = DriverManager.getConnection(url, user,password);
