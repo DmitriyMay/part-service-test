@@ -8,6 +8,6 @@ JRE 1.8, Maven 3, tomcat over 8.
 - Follow the link "http://localhost: 8080/".
 Or
 - Open a project in Ide (IntelliJ IDEA)
-- Add configuration, select "Tomsat Server -> Local"
+- Add configuration, select "Tomcat Server -> Local"
 - Run “Fix”, go to “Deployment” and delete “Application Context”.
 - Run
