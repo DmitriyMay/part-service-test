@@ -1,6 +1,7 @@
 package servlet;
 
 import part.Service;
+import part.dto.Part;
 
 import javax.inject.Inject;
 
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet("/")
 public class DefaultServlet extends HttpServlet {
@@ -20,8 +22,9 @@ public class DefaultServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List< Part > parts = service.getAllParts();
 
-        req.setAttribute("part", service.getAllParts());
+        req.setAttribute("part", parts);
 
         req.getRequestDispatcher("start.jsp").forward(req, resp);
     }

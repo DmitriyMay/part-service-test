@@ -3,7 +3,7 @@ package servlet;
 import part.dto.Criteria;
 import part.Service;
 import part.dto.Part;
-import util.ConversionJson;
+import util.Converter;
 
 import javax.inject.Inject;
 
@@ -35,7 +35,7 @@ public class FilterServlet extends HttpServlet {
         List< Part > parts = service.getFilteredParts(criteria);
 
         resp.setContentType("text/plain");
-        String partsJson = ConversionJson.getPartsJsonFromObject(parts);
+        String partsJson = Converter.getPartsJsonFromObject(parts);
 
         resp.getWriter().write(partsJson);
     }

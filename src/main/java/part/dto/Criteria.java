@@ -8,7 +8,6 @@ import java.text.SimpleDateFormat;
 import java.util.Locale;
 
 public class Criteria {
-    //    private SimpleDateFormat formatOut = new SimpleDateFormat("MMM dd, yyyy", Locale.ENGLISH);
     private static final long MIN_DATE = System.currentTimeMillis() / 5;
     private static final long MAX_DATE = System.currentTimeMillis() * 2;
     private SimpleDateFormat formatIn = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);

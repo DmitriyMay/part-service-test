@@ -3,7 +3,9 @@ package servlet;
 import part.PartType;
 import part.Service;
 import part.dto.Part;
-import util.ConversionJson;
+import util.Converter;
+import util.factory.SortFactory;
+import util.factory.SortField;
 
 import javax.inject.Inject;
 
@@ -24,15 +26,17 @@ public class SortServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        ConversionJson.setRootNodeFromHttpRequest(req);
+        Converter.setRootNodeFromHttpRequest(req);
 
-        PartType partType = ConversionJson.getPartTypeFromJson();
-        List<Part> parts = ConversionJson.getPartsListFromJson();
+        PartType partType = Converter.getPartTypeFromJson();
+        List<Part> parts = Converter.getPartsListFromJson();
 
-        service.sortParts(parts, partType);
+        SortField sortField = SortFactory.getSortField(partType);
+
+        service.sortParts(sortField, parts);
 
         resp.setContentType("text/plain");
-        String partsJson = ConversionJson.getPartsJsonFromObject(parts);
+        String partsJson = Converter.getPartsJsonFromObject(parts);
         resp.getWriter().write(partsJson);
     }
 }

@@ -10,7 +10,7 @@ public class PartComparator implements Comparator< Part > {
     private PartType partType;
     private SortType sortType;
 
-    PartComparator(SortType sortType, PartType partType) {
+    public PartComparator(SortType sortType, PartType partType) {
         this.partType = partType;
         this.sortType = sortType;
     }

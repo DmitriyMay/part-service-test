@@ -4,6 +4,7 @@ import part.dto.Criteria;
 import part.dao.DAO;
 import part.dto.Part;
 import util.SortParts;
+import util.factory.SortField;
 
 import javax.enterprise.context.ApplicationScoped;
 
@@ -17,15 +18,15 @@ import java.util.List;
 public class PartServiceImpl implements Service {
 
     @Inject
-    DAO dao;
+    private DAO dao;
 
     @Override
     public List < Part > getAllParts() {
         return dao.getAllParts();
     }
 
-    public void sortParts(List < Part > parts, PartType partType) {
-        SortParts.sortParts(parts, partType);
+    public void sortParts(SortField sortField, List < Part > parts) {
+        SortParts.sortParts(sortField, parts);
     }
 
     @Override
