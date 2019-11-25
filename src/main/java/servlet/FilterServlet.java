@@ -39,6 +39,21 @@ public class FilterServlet extends HttpServlet {
 
         resp.getWriter().write(partsJson);
     }
+    
+    private Map <String, String> getParameters(HttpServletRequest req) {
+        Map<String, String> parameters = new HashMap <>();
+
+        parameters.put("PN", req.getParameter("PN"));
+        parameters.put("Part Name", req.getParameter("Part Name"));
+        parameters.put("Vendor", req.getParameter("Vendor"));
+        parameters.put("Qty", req.getParameter("Qty"));
+        parameters.put("Shipped after", req.getParameter("Shipped after"));
+        parameters.put("Shipped before", req.getParameter("Shipped before"));
+        parameters.put("Receive after", req.getParameter("Receive after"));
+        parameters.put("Receive before", req.getParameter("Receive before"));
+
+        return parameters;
+    }
 
     private Criteria createCriteria(Map <String, String> parameters) {
         Criteria criteria = new Criteria();
@@ -56,20 +71,5 @@ public class FilterServlet extends HttpServlet {
             e.printStackTrace();
         }
         return criteria;
-    }
-
-    private Map <String, String> getParameters(HttpServletRequest req) {
-        Map<String, String> parameters = new HashMap <>();
-
-        parameters.put("PN", req.getParameter("PN"));
-        parameters.put("Part Name", req.getParameter("Part Name"));
-        parameters.put("Vendor", req.getParameter("Vendor"));
-        parameters.put("Qty", req.getParameter("Qty"));
-        parameters.put("Shipped after", req.getParameter("Shipped after"));
-        parameters.put("Shipped before", req.getParameter("Shipped before"));
-        parameters.put("Receive after", req.getParameter("Receive after"));
-        parameters.put("Receive before", req.getParameter("Receive before"));
-
-        return parameters;
     }
 }
